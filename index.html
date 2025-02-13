@@ -19,9 +19,41 @@
 </head>
 
 <body>
-	<audio src="dieWithASmileIsolatedInstrumental.mp3">
-		<p>If you are reading this, it is because your browser does not support the audio element. </p>
+	<!-- <button id="startAudioBtn">Click to Start!</button> -->
+	 <!-- Preloader (the button) -->
+	 <div id="preloader">
+		<button id="startButton">▶</button>
+	  </div>
+
+	<audio id="myAudio" autoplay>
+		<source src="dieWithASmileIsolatedInstrumental.mp3">
+		Your browser does not support the audio element.
 	</audio>
+
+	<script>
+		window.onload = function() {
+		  console.log("Script is running!");
+		  const audio = document.getElementById('myAudio');
+		  const startAudioBtn = document.getElementById('startButton');
+	
+		  // Ensure the audio starts at the beginning each time the page reloads
+		  audio.currentTime = 0;
+	
+		  // Add event listener to the button to start the audio on click
+		  startAudioBtn.addEventListener('click', function() {
+			console.log("Button clicked, playing audio!");
+	
+			// Try playing the audio when the user clicks the button
+			audio.play().then(() => {
+			  console.log("Audio is playing!");
+			}).catch(error => {
+			  console.log('Play failed:', error);
+			});
+		  });
+		};
+	  </script>
+	
+	<script type="text/javascript" src="js/preloadButton.js"></script>
 
 <div id="mainDiv">
 	<div id="content">
@@ -37,14 +69,13 @@
       		<span class="comments">// Train Number 12434. </span><br />
 			<br>
 			On that day, there was a spark...<br />
-			<span class="comments">// I was tired and thirsty </span><br />
-			On that day, we began a conversation thats still going on...<br />
+			On that day, we began a conversation that never ended...<br />
 			<br>
 			<span class="comments">// Your Beauty captivates me. </span><br />
 			<span class="comments">// Your Kindness mesmerizes me. </span><br />
 			<span class="comments">// Your Sweetness intoxicates me. </span><br />
+			<span class="comments">// Every crease of your smile, imprinted on my heart... </span><br />
 			<br>
-			Every crease of your smile, imprinted on my heart...<br />
 			Well, time's marched on... <br />
 			And our bond has grown stronger and stronger. <br />
 			From Mumbai-Delhi-Gurgaon to Dehradun-Mussourie-Raithal... <br />
@@ -59,11 +90,19 @@
 			Baby, Will You Be My Valentine?<br />
 			<br>
 			<br>
-			If you wanna kiss me now (coz I'm so cute), touch the &#x2764; below: <br />
+			If you think I'm cute (and the music's ended), touch the &#x2764; below: <br />
 			<br>
 			<span id="heartspan">
 			<a href="image.jpg"><i class="fas fa-heart" id="icon"></i></a>
 			</span>
+
+			<!-- <div id="imageContainer" class="hidden">
+				<img src="image.jpg" id="image" alt="Image" />
+				<div class="overlay"></div>
+			</div>
+
+			<script type="text/javascript" src="js/imageFadeIn.js"></script> --> 
+
 		</div>
 		<div id="loveHeart">
 			<canvas id="garden"></canvas>
@@ -114,5 +153,6 @@ if (!document.createElement('canvas').getContext) {
 	$("#code").typewriter();
 }
 </script>
+
 </body>
 </html>
