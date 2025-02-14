@@ -36,7 +36,7 @@
   #startButton {
     background-color: #007bff; /* Blue color */
     color: white;
-    font-size: 40px; /* Increase font size for better visibility */
+    font-size: 50px; /* Increase font size for better visibility */
     padding: 20px; /* Add padding for size */
     border: none;
     border-radius: 50%; /* Makes the button a perfect circle */
@@ -48,6 +48,11 @@
     align-items: center;
     width: 100px; /* Button diameter */
     height: 100px; /* Button diameter */
+  }
+
+  #startButton:before {
+    content: '\25B6'; /* Unicode for play symbol */
+    transform: translateX(5px); /* Push the play symbol slightly to the right */
   }
   
   #startButton:hover {
